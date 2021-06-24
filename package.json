@@ -2,7 +2,7 @@
   "name": "postgres_thrive_server_data",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build_data": "docker compose up -d",
     "start_data": "docker start postgres_thrive_server_data_postgres_1 -d",

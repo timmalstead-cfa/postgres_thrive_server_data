@@ -1,6 +1,6 @@
 CREATE TABLE organizations
 (
-    relation_id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name_english TEXT,
     name_spanish TEXT,
     website TEXT,
@@ -19,7 +19,7 @@ CREATE TABLE organizations
 
     CREATE TABLE locations
     (
-        relation_id INT PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         city TEXT,
         name TEXT,
         website TEXT,
@@ -36,14 +36,14 @@ CREATE TABLE organizations
 
     CREATE TABLE services
     (
-        relation_id INT PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         name_english TEXT,
         name_spanish TEXT
     );
 
     CREATE TABLE schedules
     (
-        relation_id INT PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         open_time TEXT,
         close_time TEXT,
         days TEXT,
@@ -52,7 +52,7 @@ CREATE TABLE organizations
 
     CREATE TABLE is_this_usefuls
     (
-        relation_id INT PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         created_at DATE,
         is_useful BOOLEAN,
         route TEXT,
@@ -90,24 +90,7 @@ CREATE TABLE organizations
         organizations_id INT
     );
 
-
-    ALTER TABLE organizations
-RENAME COLUMN relation_id TO id;
-
-    ALTER TABLE locations
-RENAME COLUMN relation_id TO id;
-
-    ALTER TABLE services
-RENAME COLUMN relation_id TO id;
-
-    ALTER TABLE schedules
-RENAME COLUMN relation_id TO id;
-
-    ALTER TABLE is_this_usefuls
-RENAME COLUMN relation_id TO id;
-
-
-COPY organizations
+    COPY organizations
     (id,name_english,name_spanish,website,languages_spoken_english,languages_spoken_spanish,customers_served_english,customers_served_spanish,notes_english,notes_spanish,categories_english,categories_spanish,tags_english,tags_spanish)
 	FROM '/mnt/data/organizations.csv'
 		DELIMITER ','
