@@ -8,7 +8,7 @@ const dbSetup = () => {
         const sql = new sequelize_1.Sequelize({
             dialect: "postgres",
             host: "localhost",
-            port: 5433,
+            port: 5432,
             database: "thrive",
             username: "thrive",
             password: "sbc",
